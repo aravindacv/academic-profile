@@ -1,0 +1,86 @@
+---
+import { getCollection } from 'astro:content';
+import ProfileLayout from '../layouts/ProfileLayout.astro';
+import Sidebar from '../components/Sidebar.astro';
+import PublicationItem from '../components/PublicationItem.astro';
+import { profile } from '../data/profile';
+import { countByType, countByYear, ext, getPublications, href } from '../lib/site';
+
+const pubs = await getPublications();
+const selected = pubs.filter((p) => p.selected).slice(0, 6);
+const perYear = countByYear(pubs);
+const maxYear = Math.max(...perYear.map((y) => y.count));
+const grants = (await getCollection('grants')).map((g) => g.data).sort((a, b) => b.start - a.start);
+---
+<ProfileLayout>
+  <div class="page">
+    <div>
+      <section class="section prose" aria-labelledby="bio">
+        <div class="section-head"><h2 id="bio">Personal profile</h2></div>
+        <h3>Biography</h3>
+        {profile.biography.map((p) => <p>{p}</p>)}
+
+        <h3>Research interests</h3>
+        <ul class="chips">
+          {profile.researchInterests.map((r) => <li class="chip">{r}</li>)}
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="metrics">
+        <div class="section-head"><h2 id="metrics">Research profiles and metrics</h2></div>
+        <div class="metric-grid">
+          <div class="metric"><b>{pubs.length}</b><span>Research outputs on this site</span></div>
+          <div class="metric"><b>{pubs.filter((p) => p.type === 'journal').length}</b><span>Journal articles</span></div>
+          {profile.metrics.scopusDocuments !== null && <div class="metric"><b>{profile.metrics.scopusDocuments}</b><span>Scopus documents</span></div>}
+          <div class="metric"><b>{profile.metrics.citations.toLocaleString('en-GB')}</b><span>Citations (Google Scholar)</span></div>
+          <div class="metric"><b>{profile.metrics.hIndex}</b><span>h-index (Scopus)</span></div>
+        </div>
+        <p class="metrics-note" style="text-align:left">Citation metrics as of {profile.metrics.asOf}. The live figures are on each profile.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href={profile.scopusUrl} {...ext}>View full Scopus profile ↗</a>
+          <a class="btn" href={profile.scholarUrl} {...ext}>Google Scholar ↗</a>
+          <a class="btn" href={profile.orcidUrl} {...ext}>ORCID ↗</a>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="output">
+        <div class="section-head">
+          <h2 id="output">Research output</h2>
+          <a href={href('/research-output/')}>View all {pubs.length} research outputs →</a>
+        </div>
+        <p class="lede" style="margin:0;font-size:.9rem">Research output per year</p>
+        <div class="bars" role="img" aria-label={`Research outputs per year from ${perYear[0]?.year} to ${perYear.at(-1)?.year}`}>
+          {perYear.map((y) => (
+            <span style={`height:${(y.count / maxYear) * 100}%`} data-zero={y.count === 0 ? '' : undefined} title={`${y.year}: ${y.count}`}></span>
+          ))}
+        </div>
+        <div class="bars-axis"><span>{perYear[0]?.year}</span><span>{perYear.at(-1)?.year}</span></div>
+        <ul class="type-counts">
+          {countByType(pubs).map((t) => <li><b>{t.count}</b>{t.label}{t.count === 1 ? '' : 's'}</li>)}
+        </ul>
+
+        <h3>Selected publications</h3>
+        <ul class="pub-list">
+          {selected.map((pub) => <PublicationItem pub={pub} />)}
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="funding">
+        <div class="section-head">
+          <h2 id="funding">Grants and funding</h2>
+          <a href={href('/grants/')}>All grants →</a>
+        </div>
+        <ul class="card-list">
+          {grants.map((g) => (
+            <li class="item-card">
+              <h3>{g.title}</h3>
+              <div class="sub">{g.role} · {g.funder} · {g.amount} · {g.start}–{g.end}</div>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </div>
+
+    <Sidebar />
+  </div>
+</ProfileLayout>

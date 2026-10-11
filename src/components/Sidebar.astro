@@ -1,0 +1,59 @@
+---
+import { getCollection } from 'astro:content';
+import { profile } from '../data/profile';
+import { href } from '../lib/site';
+
+// Education card: degrees plus postdoc and research fellowship, newest first.
+const education = (await getCollection('positions'))
+  .map((p) => p.data)
+  .filter((p) => p.kind === 'education' || p.kind === 'research')
+  .sort((a, b) => b.start.localeCompare(a.start));
+const short: Record<string, string> = {
+  'Multimedia University': 'Post-Doctorate',
+  'Ritsumeikan University': 'Research Fellow',
+};
+const year = (v: string | null) => (v ? v.slice(0, 4) : 'Present');
+---
+<aside class="sidebar" aria-label="Contact, education and memberships">
+  <section class="card">
+    <h2>Contact</h2>
+    <dl>
+      <dt>University email</dt>
+      <dd><a href={`mailto:${profile.email}`}>{profile.email}</a></dd>
+      <dt>Personal email</dt>
+      <dd><a href={`mailto:${profile.personalEmail}`}>{profile.personalEmail}</a></dd>
+      <dt>Affiliation</dt>
+      <dd>{profile.department}<br />{profile.institution}</dd>
+      <dt>Location</dt>
+      <dd>{profile.location}</dd>
+    </dl>
+  </section>
+
+  <section class="card">
+    <h2>Education</h2>
+    <ul class="edu">
+      {education.map((e) => (
+        <li>
+          <strong>{short[e.org] ?? e.title.split(',')[0]}</strong>
+          <span>{e.org}, {e.location.split(',').at(-1)?.trim()}</span>
+          <span class="yr">{e.start.slice(0, 4) === year(e.end) ? year(e.end) : `${e.start.slice(0, 4)}–${year(e.end)}`}</span>
+        </li>
+      ))}
+    </ul>
+    <p class="more"><a href={href('/career/')}>Full career history →</a></p>
+  </section>
+
+  <section class="card">
+    <h2>Awards</h2>
+    <ul>
+      {profile.awards.map((a) => <li><strong>{a.title}</strong>, {a.detail}{a.year && `, ${a.year}`}</li>)}
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Memberships</h2>
+    <ul>
+      {profile.memberships.map((m) => <li>{m.org} <span class="muted">· since {m.since}</span></li>)}
+    </ul>
+  </section>
+</aside>

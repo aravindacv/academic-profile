@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import ProfileLayout from '../layouts/ProfileLayout.astro';
+
+const grants = (await getCollection('grants')).map((g) => g.data).sort((a, b) => b.start - a.start);
+---
+<ProfileLayout title="Grants" description="Research grants and fellowships held by Dr Aravinda C. V.">
+  <div class="page page--full">
+    <section class="section" aria-labelledby="gr">
+      <div class="section-head"><h2 id="gr">Grants and fellowships</h2></div>
+      <ul class="card-list">
+        {grants.map((g) => (
+          <li class="item-card">
+            <h3>{g.title}</h3>
+            <div class="sub">{g.role} · {g.start}–{g.end}</div>
+            <p><strong>Funder:</strong> {g.funder} &nbsp;·&nbsp; <strong>Host:</strong> {g.host} &nbsp;·&nbsp; <strong>Amount:</strong> {g.amount}</p>
+            <ul>{g.highlights.map((h) => <li>{h}</li>)}</ul>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </div>
+</ProfileLayout>

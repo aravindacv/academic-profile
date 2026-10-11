@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import ProfileLayout from '../layouts/ProfileLayout.astro';
+import { ext } from '../lib/site';
+
+const projects = (await getCollection('projects')).map((p) => p.data);
+---
+<ProfileLayout title="Projects" description="Applied research and teaching platforms built and deployed by Dr Aravinda C. V.">
+  <div class="page page--full">
+    <section class="section" aria-labelledby="pj">
+      <div class="section-head"><h2 id="pj">Applied research and innovation projects</h2></div>
+      <p class="lede">Research prototypes and teaching platforms, most of them deployed and publicly accessible.</p>
+      <ul class="card-list grid-2">
+        {projects.map((p) => (
+          <li class="item-card">
+            <h3>{p.title}</h3>
+            <div class="sub">{p.year}{p.tags.length > 0 && ` · ${p.tags.join(', ')}`}</div>
+            <p>{p.summary}</p>
+            <ul class="stack" aria-label="Technologies">{p.stack.map((s) => <li>{s}</li>)}</ul>
+            {(p.url || p.repo) && (
+              <div class="item-links">
+                {p.url && <a href={p.url} {...ext}>Live site ↗</a>}
+                {p.repo && <a href={p.repo} {...ext}>Source code ↗</a>}
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
+    </section>
+  </div>
+</ProfileLayout>

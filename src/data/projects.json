@@ -1,0 +1,82 @@
+[
+  {
+    "id": "vichara",
+    "title": "Vichara: Design-First Learning Platform for CS/DSA",
+    "year": 2026,
+    "summary": "A four-stage Design → Code → Trace → Reflect platform that asks students to show algorithmic understanding before they write code. Includes a line-by-line execution tracer, recursion call-stack visualisation and a Socratic tutor that guides without writing code for the student.",
+    "stack": ["FastAPI", "SQLAlchemy", "React", "Vite", "AST execution tracer"],
+    "url": "https://bejewelled-youtiao-9bb2b7.netlify.app",
+    "tags": ["Education"]
+  },
+  {
+    "id": "medvision-reflex",
+    "title": "MedVision Reflex: Dermoscopy Diagnostic Support",
+    "year": 2026,
+    "summary": "Deployment of the DermSegClassify segmentation and classification research as a live diagnostic-support prototype, with a FastAPI inference backend behind a Cloudflare Tunnel.",
+    "stack": ["PyTorch", "FastAPI", "Cloudflare Pages", "Cloudflare Tunnel"],
+    "url": "https://medvision-reflex.pages.dev",
+    "tags": ["Medical Imaging"]
+  },
+  {
+    "id": "arcmed-v3",
+    "title": "ARCMED V3: Dual-Encoder Skin Disease Classifier",
+    "year": 2026,
+    "summary": "Interface for the ARCMED research line: a Swin-T + EfficientNet-B3 dual-encoder skin disease classifier served through FastAPI.",
+    "stack": ["PyTorch", "Swin-T", "EfficientNet-B3", "FastAPI", "Cloudflare Workers"],
+    "url": "https://arcmed-ui.aravinda-cv.workers.dev",
+    "tags": ["Medical Imaging"]
+  },
+  {
+    "id": "soc-eye",
+    "title": "SOC-Eye: SIEM Visual RAG Benchmark",
+    "year": 2026,
+    "summary": "Interactive benchmark comparing text-based and image-based retrieval-augmented generation for SIEM alert triage across 153,733 alerts drawn from NSL-KDD, CICIDS and CTU-13.",
+    "stack": ["FastAPI", "Chart.js", "RAG"],
+    "url": "https://huggingface.co/spaces/aravindagowda/siem-rag-benchmark",
+    "tags": ["Security", "RAG"]
+  },
+  {
+    "id": "apex",
+    "title": "APEX v3.0: AI-Assisted Course Exemption Review",
+    "year": 2026,
+    "summary": "Indexes 291 courses from institutional syllabus PDFs with a universal parser, then combines FAISS retrieval with LLM reasoning to support exemption review decisions.",
+    "stack": ["FastAPI", "React", "FAISS", "SentenceTransformers", "Claude API"],
+    "repo": "https://github.com/aravindacv/mec-exemption-system",
+    "tags": ["Education", "RAG"]
+  },
+  {
+    "id": "genai-classroom",
+    "title": "GenAI Classroom: Multi-Modal Learning Platform",
+    "year": 2026,
+    "summary": "Classroom platform with four modes (Debate Arena, Code Lab, Teacher Studio, Research Supervisor) and a shared prompt refiner, working across four LLM providers.",
+    "stack": ["Groq", "Gemini", "OpenRouter", "Anthropic API", "Cloudflare Pages"],
+    "url": "https://genai-classroom.pages.dev",
+    "tags": ["Education", "LLMs"]
+  },
+  {
+    "id": "expression-engine",
+    "title": "Expression Engine: Real-Time Expression Recognition",
+    "year": 2026,
+    "summary": "Webcam-based facial blendshape detection driving a parametric anime-style reaction rig with a 48-expression set and text/voice-to-emoji mapping.",
+    "stack": ["MediaPipe", "SVG procedural rig", "Cloudflare Workers"],
+    "url": "https://expression-engine.refactornatc.workers.dev",
+    "tags": ["Computer Vision"]
+  },
+  {
+    "id": "samvada",
+    "title": "Samvada: AI Language Learning Companion",
+    "year": 2026,
+    "summary": "Language-learning app built around “Vani”, an adaptive companion covering 18 languages including Kannada, Tamil, Telugu and Malayalam, with voice input/output, role-play scenarios and a built-in translator.",
+    "stack": ["React", "Vite", "Speech I/O", "Multilingual NLP"],
+    "tags": ["Education", "NLP"]
+  },
+  {
+    "id": "translator",
+    "title": "Multilingual AI Translator",
+    "year": 2026,
+    "summary": "Publicly accessible real-time translation web application.",
+    "stack": ["React", "NLP APIs", "Netlify"],
+    "url": "https://cva-multilingual-translator.netlify.app",
+    "tags": ["NLP"]
+  }
+]

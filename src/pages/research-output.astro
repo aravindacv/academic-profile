@@ -1,0 +1,71 @@
+---
+import ProfileLayout from '../layouts/ProfileLayout.astro';
+import PublicationItem from '../components/PublicationItem.astro';
+import { countByType, getPublications } from '../lib/site';
+
+const pubs = await getPublications();
+const years = [...new Set(pubs.map((p) => p.year))].sort((a, b) => b - a);
+const types = countByType(pubs).filter((t) => t.count > 0);
+---
+<ProfileLayout title="Research output" description="Journal articles, conference papers, book chapters and books by Dr Aravinda C. V.">
+  <div class="page page--full">
+    <section class="section" aria-labelledby="ro">
+      <div class="section-head"><h2 id="ro">Research output</h2></div>
+
+      <!-- The full list renders without JavaScript; the filter bar below is an enhancement. -->
+      <div class="filters" id="filters" hidden>
+        <button type="button" data-filter="all" aria-pressed="true">All ({pubs.length})</button>
+        {types.map((t) => <button type="button" data-filter={t.type} aria-pressed="false">{t.label}s ({t.count})</button>)}
+        <label class="visually-hidden" for="pub-search">Search publications</label>
+        <input id="pub-search" type="search" placeholder="Search title, venue, co-author, topic…" />
+      </div>
+      <p class="filter-status" id="filter-status" aria-live="polite"></p>
+
+      {years.map((year) => (
+        <div class="year-group" data-year={year}>
+          <h3>{year}</h3>
+          <ul class="pub-list">
+            {pubs.filter((p) => p.year === year).map((pub) => <PublicationItem pub={pub} />)}
+          </ul>
+        </div>
+      ))}
+    </section>
+  </div>
+</ProfileLayout>
+
+<script>
+  const bar = document.getElementById('filters')!;
+  const search = document.getElementById('pub-search') as HTMLInputElement;
+  const status = document.getElementById('filter-status')!;
+  const buttons = [...bar.querySelectorAll<HTMLButtonElement>('button[data-filter]')];
+  const items = [...document.querySelectorAll<HTMLElement>('.pub')];
+  const groups = [...document.querySelectorAll<HTMLElement>('.year-group')];
+  bar.hidden = false;
+
+  // Initial state from the URL so filtered views can be shared, e.g. ?type=journal&q=quantum
+  const params = new URLSearchParams(location.search);
+  let type = params.get('type') ?? 'all';
+  search.value = params.get('q') ?? '';
+
+  function apply() {
+    const q = search.value.trim().toLowerCase();
+    let shown = 0;
+    for (const el of items) {
+      const ok = (type === 'all' || el.dataset.type === type) && (!q || el.dataset.search!.includes(q));
+      el.hidden = !ok;
+      if (ok) shown++;
+    }
+    for (const g of groups) g.hidden = !g.querySelector('.pub:not([hidden])');
+    for (const b of buttons) b.setAttribute('aria-pressed', String(b.dataset.filter === type));
+    status.textContent = shown === items.length ? '' : `Showing ${shown} of ${items.length} outputs`;
+
+    const next = new URLSearchParams();
+    if (type !== 'all') next.set('type', type);
+    if (q) next.set('q', q);
+    history.replaceState(null, '', next.size ? `?${next}` : location.pathname);
+  }
+
+  buttons.forEach((b) => b.addEventListener('click', () => { type = b.dataset.filter!; apply(); }));
+  search.addEventListener('input', apply);
+  apply();
+</script>

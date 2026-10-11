@@ -1,0 +1,39 @@
+---
+import ProfileLayout from '../layouts/ProfileLayout.astro';
+import { profile } from '../data/profile';
+---
+<ProfileLayout title="Teaching" description="Teaching areas and approach of Dr Aravinda C. V.">
+  <div class="page page--full">
+    <section class="section prose" aria-labelledby="tp">
+      <div class="section-head"><h2 id="tp">Teaching</h2></div>
+      <p>
+        I teach with one aim: graduates who understand AI fundamentals deeply, can implement systems reliably,
+        and can justify their design decisions with evidence. Students are asked to explain their designs:
+        state assumptions, justify architectures and interpret outputs, rather than report accuracy alone.
+      </p>
+      <p>
+        Courses move from fundamentals (linear algebra, probability, optimisation) to hands-on work on realistic
+        datasets with class imbalance, limited labels, domain shift and compute limits. Evaluation validity,
+        reproducibility, and the honest limits of explainability methods are taught as part of the engineering
+        discipline, not as add-ons.
+      </p>
+      <h3>Teaching areas</h3>
+      <ul class="chips">{profile.teachingAreas.map((t) => <li class="chip">{t}</li>)}</ul>
+    </section>
+
+    <section class="section prose" aria-labelledby="sv">
+      <div class="section-head"><h2 id="sv">Supervision</h2></div>
+      <div class="metric-grid" style="margin-bottom:16px">
+        <div class="metric"><b>{profile.supervision.postdoc}</b><span>Postdoctoral researchers guided</span></div>
+        <div class="metric"><b>{profile.supervision.phd}</b><span>Ph.D. scholars mentored</span></div>
+        <div class="metric"><b>{profile.supervision.students}</b><span>UG and PG students mentored</span></div>
+      </div>
+      <p>
+        Welcomes prospective postdoctoral researchers and Ph.D. students interested in explainable medical
+        imaging AI, vision transformers, hybrid quantum–classical learning, federated learning and
+        retrieval-augmented generation.
+      </p>
+      <p><a href={`mailto:${profile.email}?subject=Prospective%20student%20enquiry`}>Get in touch about supervision →</a></p>
+    </section>
+  </div>
+</ProfileLayout>

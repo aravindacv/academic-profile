@@ -1,0 +1,58 @@
+---
+import { getCollection } from 'astro:content';
+import { profile } from '../data/profile';
+import { extMe, href, navItems } from '../lib/site';
+
+const current = Astro.url.pathname.replace(import.meta.env.BASE_URL.replace(/\/$/, ''), '') || '/';
+const normalise = (p: string) => (p.endsWith('/') ? p : `${p}/`);
+
+const counts: Record<string, number> = {
+  '/research-output/': (await getCollection('publications')).length,
+  '/projects/': (await getCollection('projects')).length,
+  '/grants/': (await getCollection('grants')).length,
+};
+
+const initials = profile.name.split(/\s+/).map((w) => w[0]).join('').slice(0, 2);
+---
+<section class="profile-head" aria-label="Profile">
+  <div class="container">
+    <div class="profile-grid">
+      {profile.photo
+        ? <img class="avatar" src={href(`/${profile.photo}`)} alt={`Portrait of ${profile.name}`} width="128" height="128" />
+        : <div class="avatar avatar--initials" aria-hidden="true">{initials}</div>}
+
+      <div>
+        <h1 class="profile-name">{profile.name}</h1>
+        <p class="profile-honorific">{profile.honorific}</p>
+        <p class="profile-role"><strong>{profile.title}</strong>, {profile.department}</p>
+        <p class="profile-role">{profile.institution}, {profile.location}</p>
+        <ul class="profile-ids">
+          <li><a href={`https://orcid.org/${profile.ids.orcid}`} {...extMe}>ORCID {profile.ids.orcid}</a></li>
+          <li><a href={profile.scopusUrl} {...extMe}>Scopus profile ↗</a></li>
+          <li><a href={profile.scholarUrl} {...extMe}>Google Scholar ↗</a></li>
+          <li><a href={`mailto:${profile.email}`}>Email</a></li>
+        </ul>
+      </div>
+
+      <div class="metrics-wrap">
+        <div class="metrics">
+          <div class="metric"><b>{profile.metrics.citations.toLocaleString('en-GB')}</b><span>Citations</span></div>
+          <div class="metric"><b>{profile.metrics.hIndex}</b><span>h-index</span></div>
+        </div>
+        <p class="metrics-note">{profile.metrics.source}, {profile.metrics.asOf}</p>
+      </div>
+    </div>
+
+    <nav class="tabs" aria-label="Profile sections">
+      <ul>
+        {navItems.map((item) => (
+          <li>
+            <a href={href(item.path)} aria-current={normalise(current) === item.path ? 'page' : undefined}>
+              {item.label}{counts[item.path] !== undefined && <span class="count"> ({counts[item.path]})</span>}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</section>

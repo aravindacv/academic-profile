@@ -1,0 +1,44 @@
+[
+  {
+    "id": "vision2040",
+    "title": "AI for Vision 2040: Machine Learning Algorithms to Strengthen Omani Youth Employment",
+    "role": "Principal Investigator",
+    "funder": "Institutional grant aligned with Oman Vision 2040",
+    "host": "Middle East College, Oman",
+    "amount": "OMR 8,000",
+    "start": 2025,
+    "end": 2027,
+    "highlights": [
+      "Upgraded AI laboratory infrastructure to support LLM work and NVIDIA Jetson modules.",
+      "Developed machine learning pipelines aimed at employability outcomes for Omani youth."
+    ]
+  },
+  {
+    "id": "aicte-lab",
+    "title": "Modernization of IoT and AI Laboratory",
+    "role": "Principal Investigator",
+    "funder": "AICTE, Government of India",
+    "host": "N.M.A.M. Institute of Technology, India",
+    "amount": "INR 565,000",
+    "start": 2021,
+    "end": 2023,
+    "highlights": [
+      "Established AI and IoT research infrastructure including NVIDIA Jetson kits.",
+      "Enabled student-led AI applications in healthcare and agriculture."
+    ]
+  },
+  {
+    "id": "kakenhi",
+    "title": "Ancient Asian Character Recognition Using Deep Learning (KAKENHI 18K18337)",
+    "role": "Research Fellow",
+    "funder": "JSPS KAKENHI, Japan",
+    "host": "Ritsumeikan University, Japan",
+    "amount": "JPY 500,000",
+    "start": 2019,
+    "end": 2020,
+    "highlights": [
+      "Developed CNN-based OCR models for 4,212 ancient character classes.",
+      "Reached 90–92% recognition accuracy across multiple historical scripts."
+    ]
+  }
+]

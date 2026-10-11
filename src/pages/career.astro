@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import ProfileLayout from '../layouts/ProfileLayout.astro';
+import { formatMonth } from '../lib/site';
+
+const all = (await getCollection('positions')).map((p) => p.data).sort((a, b) => b.start.localeCompare(a.start));
+// Education lists degrees together with the postdoc and research fellowship, newest first.
+const groups = [
+  { id: 'education', heading: 'Education', kinds: ['research', 'education'] },
+  { id: 'employment', heading: 'Academic appointments', kinds: ['employment'] },
+] as const;
+---
+<ProfileLayout title="Career" description="Academic appointments, research fellowships and education of Dr Aravinda C. V.">
+  <div class="page page--full">
+    {groups.map((g) => (
+      <section class="section" aria-labelledby={g.id}>
+        <div class="section-head"><h2 id={g.id}>{g.heading}</h2></div>
+        <ol class="timeline">
+          {all.filter((p) => (g.kinds as readonly string[]).includes(p.kind)).map((p) => (
+            <li>
+              <div class="when">{formatMonth(p.start)} – {formatMonth(p.end)}</div>
+              <div>
+                <h3>{p.title}</h3>
+                <p class="org">{p.org}{p.unit && ` · ${p.unit}`} · {p.location}</p>
+                {p.points.length > 0 && <ul>{p.points.map((pt) => <li>{pt}</li>)}</ul>}
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+    ))}
+  </div>
+</ProfileLayout>

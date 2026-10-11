@@ -1,0 +1,109 @@
+[
+  {
+    "id": "cuk",
+    "kind": "employment",
+    "title": "Tenure-Track Faculty, Computer Science",
+    "org": "Coventry University Kazakhstan",
+    "unit": "Department of Computer Science",
+    "location": "Astana, Kazakhstan",
+    "start": "2026-09",
+    "end": null,
+    "points": [
+      "Teaching and curriculum development in Artificial Intelligence, Machine Learning and related Computer Science modules at UG and PG levels.",
+      "Research supervision and outcome-based education design."
+    ]
+  },
+  {
+    "id": "mec",
+    "kind": "employment",
+    "title": "Faculty Member",
+    "org": "Middle East College (affiliated to Coventry University, UK)",
+    "unit": "Department of Computer and Electronics Engineering",
+    "location": "Muscat, Oman",
+    "start": "2025-04",
+    "end": "2026-08",
+    "points": [
+      "Taught Artificial Intelligence, Deep Learning, Prompt Engineering and Large Language Models at UG and PG levels.",
+      "Applied outcome-based education and flipped-classroom methods.",
+      "Principal Investigator, AI for Vision 2040."
+    ]
+  },
+  {
+    "id": "nmamit",
+    "kind": "employment",
+    "title": "Professor, Computer Science and Engineering",
+    "org": "N.M.A.M. Institute of Technology, NITTE University",
+    "location": "Karnataka, India",
+    "start": "2017-06",
+    "end": "2025-04",
+    "points": [
+      "Taught Machine Learning, Explainable AI, Information Security and Digital Image Processing.",
+      "Led AICTE-aligned curriculum revision; mentored 3 Ph.D. scholars and 30+ UG/PG students.",
+      "Principal Investigator, AICTE IoT and AI Lab Modernisation."
+    ]
+  },
+  {
+    "id": "sjbit",
+    "kind": "employment",
+    "title": "Associate Professor, Information Science and Engineering",
+    "org": "S.J.B. Institute of Technology",
+    "location": "Bangalore, India",
+    "start": "2013-06",
+    "end": "2017-06",
+    "points": [
+      "Introduced project-based assessment; mentored undergraduate capstone teams for national innovation competitions."
+    ]
+  },
+  {
+    "id": "mmu-postdoc",
+    "kind": "research",
+    "title": "Post-Doctorate, Quantum Machine Learning for Medical Image Analysis",
+    "org": "Multimedia University",
+    "unit": "Centre for Image and Vision Computing, Centre of Excellence for AI",
+    "location": "Melaka, Malaysia",
+    "start": "2025-04",
+    "end": "2026-03",
+    "points": [
+      "Approved project: Advancing Medical Image Analysis Through Quantum Machine Learning Techniques.",
+      "Supervised by Dr. Joseph Emerson Raja (MMU); co-supervised by Dr. Sultan Alasmari (Riyadh Elm University).",
+      "Developed quantum-enhanced diagnostic models combining PennyLane circuits with explainability frameworks."
+    ]
+  },
+  {
+    "id": "ritsumeikan",
+    "kind": "research",
+    "title": "Research Fellow, JSPS KAKENHI Project 18K18337",
+    "org": "Ritsumeikan University",
+    "unit": "Intelligent High-Performance Computing Lab, Dept. of Electronic and Computer Engineering",
+    "location": "Shiga, Japan",
+    "start": "2020-01",
+    "end": "2020-03",
+    "points": [
+      "Research on ancient Asian character recognition using deep learning, hosted by Prof. Lin Meng."
+    ]
+  },
+  {
+    "id": "phd",
+    "kind": "education",
+    "title": "Ph.D., Computer Science and Engineering",
+    "org": "Visvesvaraya Technological University",
+    "location": "Belagavi, India",
+    "start": "2012-01",
+    "end": "2018-01",
+    "points": [
+      "Thesis: Character Recognition for South Indian Languages. Degree conferred 9 January 2018."
+    ]
+  },
+  {
+    "id": "mtech",
+    "kind": "education",
+    "title": "M.Tech., Information Technology",
+    "org": "University of Mysore, Manasagangotri",
+    "location": "Mysuru, India",
+    "start": "2008-12",
+    "end": "2010-04",
+    "points": [
+      "Thesis: Security in MANETs. Designed the RACK scheme to detect and mitigate selfish-node routing misbehaviour."
+    ]
+  }
+]

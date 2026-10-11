@@ -1,0 +1,76 @@
+---
+// Fonts are bundled with the site (no third-party requests, works offline and on any host).
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import '@fontsource/roboto/900.css';
+import '../styles/global.css';
+import ProfileHeader from '../components/ProfileHeader.astro';
+import { profile } from '../data/profile';
+import { href } from '../lib/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description = `${profile.honorific} ${profile.name}, ${profile.title}, ${profile.institution}. Research in explainable AI, medical image analysis and quantum machine learning.` } = Astro.props;
+const fullTitle = title ? `${title} · ${profile.name}` : `${profile.name} · ${profile.institution}`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+
+// Structured data so search engines and Google Scholar-style crawlers understand the page.
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: profile.name,
+  honorificPrefix: profile.honorific,
+  jobTitle: profile.title,
+  email: `mailto:${profile.email}`,
+  affiliation: { '@type': 'CollegeOrUniversity', name: profile.institution },
+  workLocation: { '@type': 'Place', name: profile.location },
+  knowsAbout: profile.researchInterests,
+  sameAs: profile.links.map((l) => l.href),
+  identifier: { '@type': 'PropertyValue', propertyID: 'ORCID', value: profile.ids.orcid },
+  url: canonical.href,
+};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href={href('/favicon.svg')} type="image/svg+xml" />
+    <link rel="sitemap" href={href('/sitemap-index.xml')} />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <div class="container">
+        <a class="wordmark" href={href('/')}>{profile.name}</a>
+        <span class="meta">{profile.department} · {profile.institution}</span>
+      </div>
+    </header>
+
+    <ProfileHeader />
+
+    <main id="main" class="container">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <span>© {new Date().getFullYear()} {profile.name}. Personal academic website.</span>
+        <span>Last built {new Date().toISOString().slice(0, 10)}</span>
+      </div>
+    </footer>
+  </body>
+</html>
