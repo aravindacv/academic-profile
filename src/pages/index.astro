@@ -4,12 +4,14 @@ import ProfileLayout from '../layouts/ProfileLayout.astro';
 import Sidebar from '../components/Sidebar.astro';
 import PublicationItem from '../components/PublicationItem.astro';
 import { profile } from '../data/profile';
-import { countByType, countByYear, ext, getPublications, href } from '../lib/site';
+import { countByType, countByYear, ext, formatDay, getPublications, href, scholar } from '../lib/site';
 
 const pubs = await getPublications();
 const selected = pubs.filter((p) => p.selected).slice(0, 6);
 const perYear = countByYear(pubs);
 const maxYear = Math.max(...perYear.map((y) => y.count));
+const citesPerYear = scholar.perYear;
+const maxCites = Math.max(1, ...citesPerYear.map((y) => y.citations));
 const grants = (await getCollection('grants')).map((g) => g.data).sort((a, b) => b.start - a.start);
 ---
 <ProfileLayout>
@@ -29,13 +31,30 @@ const grants = (await getCollection('grants')).map((g) => g.data).sort((a, b) =>
       <section class="section" aria-labelledby="metrics">
         <div class="section-head"><h2 id="metrics">Research profiles and metrics</h2></div>
         <div class="metric-grid">
+          <div class="metric"><b>{scholar.citations.toLocaleString('en-GB')}</b><span>Citations (Google Scholar)</span></div>
+          {scholar.hIndex !== null && <div class="metric"><b>{scholar.hIndex}</b><span>h-index (Google Scholar)</span></div>}
+          {scholar.i10Index !== null && <div class="metric"><b>{scholar.i10Index}</b><span>i10-index (Google Scholar)</span></div>}
+          <div class="metric"><b>{profile.metrics.scopusHIndex}</b><span>h-index (Scopus)</span></div>
+          {profile.metrics.scopusDocuments !== null && <div class="metric"><b>{profile.metrics.scopusDocuments}</b><span>Scopus documents</span></div>}
           <div class="metric"><b>{pubs.length}</b><span>Research outputs on this site</span></div>
           <div class="metric"><b>{pubs.filter((p) => p.type === 'journal').length}</b><span>Journal articles</span></div>
-          {profile.metrics.scopusDocuments !== null && <div class="metric"><b>{profile.metrics.scopusDocuments}</b><span>Scopus documents</span></div>}
-          <div class="metric"><b>{profile.metrics.citations.toLocaleString('en-GB')}</b><span>Citations (Google Scholar)</span></div>
-          <div class="metric"><b>{profile.metrics.hIndex}</b><span>h-index (Scopus)</span></div>
         </div>
-        <p class="metrics-note" style="text-align:left">Citation metrics as of {profile.metrics.asOf}. The live figures are on each profile.</p>
+        <p class="metrics-note" style="text-align:left">
+          Google Scholar figures update automatically every week (last updated {formatDay(scholar.updated)}).
+          Scopus h-index as of {profile.metrics.scopusAsOf}.
+        </p>
+
+        {citesPerYear.length > 1 && (
+          <>
+            <p class="lede" style="margin:20px 0 0;font-size:.9rem">Citations per year (Google Scholar)</p>
+            <div class="bars" role="img" aria-label={`Citations per year from ${citesPerYear[0]?.year} to ${citesPerYear.at(-1)?.year}`}>
+              {citesPerYear.map((y) => (
+                <span style={`height:${(y.citations / maxCites) * 100}%`} data-zero={y.citations === 0 ? '' : undefined} title={`${y.year}: ${y.citations} citations`}></span>
+              ))}
+            </div>
+            <div class="bars-axis"><span>{citesPerYear[0]?.year}</span><span>{citesPerYear.at(-1)?.year}</span></div>
+          </>
+        )}
         <div class="btn-row">
           <a class="btn btn--primary" href={profile.scopusUrl} {...ext}>View full Scopus profile ↗</a>
           <a class="btn" href={profile.scholarUrl} {...ext}>Google Scholar ↗</a>

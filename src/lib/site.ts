@@ -1,4 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
+import scholarMetrics from '../data/scholar-metrics.json';
 
 export type Publication = CollectionEntry<'publications'>['data'] & { id: string };
 
@@ -7,6 +8,22 @@ export function href(path: string): string {
   const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   const clean = path.startsWith('/') ? path : `/${path}`;
   return `${base}${clean}` || '/';
+}
+
+/** Google Scholar metrics, refreshed weekly by scripts/fetch-scholar-metrics.mjs. */
+export const scholar = scholarMetrics as {
+  source: string;
+  updated: string;
+  citations: number;
+  hIndex: number | null;
+  i10Index: number | null;
+  perYear: { year: number; citations: number }[];
+};
+
+/** "2026-10-13" -> "13 Oct 2026" */
+export function formatDay(iso: string): string {
+  const [y, m, d] = iso.split('-').map(Number);
+  return `${d} ${MONTHS[(m ?? 1) - 1]} ${y}`;
 }
 
 /** Attributes for links that leave the site: open in a new tab, safely. */

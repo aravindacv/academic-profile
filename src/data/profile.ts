@@ -27,15 +27,16 @@ export const profile = {
   scholarUrl: 'https://scholar.google.com/citations?user=vclqSkkAAAAJ',
 
   /**
-   * Update these periodically from Scopus / Google Scholar. `asOf` is shown next to the numbers.
-   * scopusDocuments: the "Documents" figure on your Scopus page (set to null to hide it).
+   * Google Scholar citations, h-index and i10-index update AUTOMATICALLY every week
+   * (see scripts/fetch-scholar-metrics.mjs and src/data/scholar-metrics.json).
+   *
+   * Scopus figures below are updated by hand. `scopusAsOf` is shown next to them.
+   * scopusDocuments: the "Documents" figure on your Scopus page (null hides it).
    */
   metrics: {
-    asOf: 'October 2026',
-    source: 'Scopus (h-index) and Google Scholar (citations)',
-    citations: 1077,
-    hIndex: 18,
+    scopusHIndex: 18,
     scopusDocuments: null as number | null,
+    scopusAsOf: 'October 2026',
   },
 
   links: [

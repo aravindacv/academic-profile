@@ -1,14 +1,23 @@
-# Builds the site and publishes it to GitHub Pages on every push to main.
-# One-time setup: repo Settings → Pages → Build and deployment → Source: "GitHub Actions".
+# Builds the site and publishes it to GitHub Pages.
+#  - on every push to main
+#  - every Monday at 09:00 India time, to refresh Google Scholar citation metrics
+#  - manually, from the Actions tab ("Run workflow")
+#
+# One-time setup:
+#  1. Settings → Pages → Build and deployment → Source: "GitHub Actions"
+#  2. Settings → Secrets and variables → Actions → New repository secret
+#     Name: SERPAPI_KEY   Value: your key from https://serpapi.com/manage-api-key
 name: Deploy to GitHub Pages
 
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: '30 3 * * 1' # 03:30 UTC Monday = 09:00 IST
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write # lets the job save refreshed metrics back to the repo
   pages: write
   id-token: write
 
@@ -28,10 +37,27 @@ jobs:
       - id: pages
         uses: actions/configure-pages@v5
       - run: npm ci
+
+      - name: Refresh Google Scholar metrics
+        run: node scripts/fetch-scholar-metrics.mjs
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+
+      # Save the refreshed numbers in the repo, so they survive a failed fetch next week.
+      # Commits made with GITHUB_TOKEN do not trigger another run, so there is no loop.
+      - name: Save refreshed metrics
+        run: |
+          if ! git diff --quiet -- src/data/scholar-metrics.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add src/data/scholar-metrics.json
+            git commit -m "Update Google Scholar metrics [skip ci]"
+            git push
+          fi
+
       - name: Type-check and build
         run: npm run build
         env:
-          # e.g. https://aravindacv.github.io and /academic-profile — derived automatically from the repo.
           SITE_URL: ${{ steps.pages.outputs.origin }}
           BASE_PATH: ${{ steps.pages.outputs.base_path || '/' }}
       - uses: actions/upload-pages-artifact@v3
