@@ -162,6 +162,38 @@
     "tags": ["Video Understanding", "Graph Neural Networks"]
   },
   {
+    "id": "2025-improving-octa-image",
+    "title": "Improving OCTA Image Quality for Alzheimer's Diagnosis Using Autoencoder, Self-Attention and GANs",
+    "authors": ["Madhu, C.K.", "Aravinda, C.V.", "Aruna Kumar, S.V.", "Tejonidhi, M.R.", "Vinod, A.M.", "Raghunandan, K.R."],
+    "year": 2025,
+    "type": "journal",
+    "venue": "International Journal of Intelligent Engineering and Systems",
+    "details": "Vol. 18, No. 7, pp. 1–17",
+    "doi": "10.22266/ijies2025.0831.01"
+  },
+  {
+    "id": "2025-empowering-sustainable-agriculture",
+    "title": "Empowering Sustainable Agriculture Through IoT and Multimodal Recommendation Systems: A Deep Learning Approach",
+    "authors": ["Martis, J.E.", "Sannidhan, M.S.", "Aravinda, C.V."],
+    "year": 2025,
+    "type": "chapter",
+    "venue": "Studies in Big Data",
+    "publisher": "Springer",
+    "details": "Vol. 176, pp. 73–100",
+    "doi": "10.1007/978-981-96-7492-3_4"
+  },
+  {
+    "id": "2025-predicting-graduate-students",
+    "title": "Predicting Graduate Students' Industry Readiness Courses Using Big Data and a Recommendation Engine",
+    "authors": ["Aravinda, C.V.", "Khan, M.S.", "Bhat, A.Z.", "Venugopal, D.", "Bino, D."],
+    "year": 2025,
+    "type": "conference",
+    "venue": "CEUR Workshop Proceedings",
+    "publisher": "CEUR-WS",
+    "details": "Vol. 4082, pp. 97–107",
+    "url": "https://www.scopus.com/pages/publications/105022309906"
+  },
+  {
     "id": "fbd2024-cct-covid",
     "title": "Leveraging Compact Convolutional Transformers for Enhanced COVID-19 Detection in Chest X-rays: A Grad-CAM Visualization Approach",
     "authors": ["Aravinda, C.V.", "Sudeepa, K.B."],
@@ -172,6 +204,27 @@
     "details": "Vol. 7",
     "doi": "10.3389/fdata.2024.1489020",
     "tags": ["XAI", "Medical Imaging", "Transformers"]
+  },
+  {
+    "id": "2024-enhancing-automotive-safety",
+    "title": "Enhancing Automotive Safety through Advanced Human Action Recognition Techniques",
+    "authors": ["Aravinda, C.V.", "Sannidhan, M.S.", "Aswath, S.", "Shetty, J.", "Arjun, B.C."],
+    "year": 2024,
+    "type": "conference",
+    "venue": "CEUR Workshop Proceedings",
+    "publisher": "CEUR-WS",
+    "details": "Vol. 3748, pp. 13–24",
+    "url": "https://www.scopus.com/pages/publications/85203312830"
+  },
+  {
+    "id": "2024-issues-challenges-implementing",
+    "title": "Issues and Challenges of Implementing Project Based Learning in Engineering Courses: Student and Faculty Perspective",
+    "authors": ["Venugopala, P.S.", "Ashwini, B.", "Shrinivasa, P.P.", "Aravinda, C.V."],
+    "year": 2024,
+    "type": "journal",
+    "venue": "Journal of Engineering Education Transformations",
+    "details": "Vol. 37, No. 3, pp. 86–98",
+    "doi": "10.16920/jeet/2024/v37i3/24006"
   },
   {
     "id": "act2023-yolov8-medicine",
@@ -259,6 +312,28 @@
     "tags": ["Character Recognition"]
   },
   {
+    "id": "2023-application-active-learning",
+    "title": "Application of Active Learning Technique with CNN for the Classification of Microscopic Breast Cancer Images",
+    "authors": ["Pratheeksha Hegde, N.", "Martis, J.E.", "Sannidhan, M.S.", "Aravinda, C.V.", "Bhatnagar, R."],
+    "year": 2023,
+    "type": "conference",
+    "venue": "Smart Innovation, Systems and Technologies",
+    "publisher": "Springer",
+    "details": "Vol. 394 SIST, pp. 611–623",
+    "doi": "10.1007/978-981-97-3980-6_53"
+  },
+  {
+    "id": "2023-detection-classification-peripheral",
+    "title": "Detection and Classification of Peripheral Plasmodium Parasites in Blood Smears using Filters and Machine Learning Algorithms",
+    "authors": ["Aravinda, C.V.", "Sannidhan, M.S.", "Bangera, V.", "Shetty, J.", "Shetty, V.", "Kochari, V."],
+    "year": 2023,
+    "type": "conference",
+    "venue": "CEUR Workshop Proceedings",
+    "publisher": "CEUR-WS",
+    "details": "Vol. 3459, pp. 1–14",
+    "url": "https://www.scopus.com/pages/publications/85171147296"
+  },
+  {
     "id": "access2022-dknet",
     "title": "DKNet: Deep Kuzushiji Characters Recognition Network",
     "authors": ["Singh, D.", "Aravinda, C.V.", "Kaur, M.", "Lin, M.", "Shetty, J.", "Reddicherla, V.R.", "Lee, H.-N."],
@@ -338,6 +413,27 @@
     "tags": ["Image Processing", "Agriculture"]
   },
   {
+    "id": "2022-detection-peripheral-malarial",
+    "title": "Detection of Peripheral Malarial Parasites in Blood Smears Using Deep Learning Models",
+    "authors": ["Alharbi, A.H.", "Aravinda, C.V.", "Lin, M.", "Ashwini, B.", "Jabarulla, M.Y.", "Shah, M.A."],
+    "year": 2022,
+    "type": "journal",
+    "venue": "Computational Intelligence and Neuroscience",
+    "publisher": "Hindawi / Wiley",
+    "details": "Vol. 2022, Art. 3922763",
+    "doi": "10.1155/2022/3922763"
+  },
+  {
+    "id": "2022-off-line-signature",
+    "title": "Off-Line Signature Confirmation based on Cluster Representations of Geometrical and Statistical Features through Vector Distance, Neural Network and Support Vector Machine Classifiers",
+    "authors": ["Aravinda, C.V.", "Devaraj, S.", "Nanjundaiah, P.H.", "Reddy, K.R.U."],
+    "year": 2022,
+    "type": "journal",
+    "venue": "International Arab Journal of Information Technology",
+    "details": "Vol. 19, No. 4, pp. 667–673",
+    "doi": "10.34028/iajit/19/4/11"
+  },
+  {
     "id": "academic2021-gradcam-covid",
     "title": "A Demystifying Convolutional Neural Networks Using Grad-CAM for Prediction of Coronavirus Disease (COVID-19) on X-ray Images",
     "authors": ["Aravinda, C.V.", "Lin, M.", "Reddy, K.R.U.K.", "Prabhu, G.A."],
@@ -382,6 +478,17 @@
     "tags": ["Clustering"]
   },
   {
+    "id": "2021-ai-android-application",
+    "title": "An AI-based Android Application for Ancient Documents Text Recognition",
+    "authors": ["Morioka, T.", "Aravinda, C.V.", "Meng, L."],
+    "year": 2021,
+    "type": "conference",
+    "venue": "CEUR Workshop Proceedings",
+    "publisher": "CEUR-WS",
+    "details": "Vol. 3131, pp. 91–98",
+    "url": "https://www.scopus.com/pages/publications/85129660605"
+  },
+  {
     "id": "icamechs2020-south-indian",
     "title": "South Indian Character Recognition Using Statistical Feature Extraction and Distance Classifier",
     "authors": ["Aravinda, C.V.", "Reddy, K.R.U.K.", "Meng, L.", "Prabhu, G.A."],
@@ -413,6 +520,16 @@
     "publisher": "Frontiers",
     "details": "Vol. 8, 553847",
     "tags": ["Healthcare ML"]
+  },
+  {
+    "id": "2020-offline-signature-recognition",
+    "title": "Offline Signature Recognition and Verification using ORB Key Point Matching Techniques",
+    "authors": ["Aravinda, C.V.", "Masahiko, A.", "Akshaya", "Gurupura, A.P.", "Kyasambally Rajashekar, U.K.R."],
+    "year": 2020,
+    "type": "journal",
+    "venue": "Advances in Science, Technology and Engineering Systems",
+    "details": "Vol. 5, No. 4, pp. 1–7",
+    "doi": "10.25046/aj050401"
   },
   {
     "id": "icamechs2019-signature-contours",
@@ -470,6 +587,28 @@
     "tags": ["Healthcare ML"]
   },
   {
+    "id": "2019-oracle-bone-inscription",
+    "title": "Oracle Bone Inscription Detector Based on SSD",
+    "authors": ["Meng, L.", "Lyu, B.", "Zhang, Z.", "Aravinda, C.V.", "Kamitoku, N.", "Yamazaki, K."],
+    "year": 2019,
+    "type": "conference",
+    "venue": "Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)",
+    "publisher": "Springer",
+    "details": "Vol. 11808 LNCS, pp. 126–136",
+    "doi": "10.1007/978-3-030-30754-7_13"
+  },
+  {
+    "id": "2019-analyzing-comparison-movie",
+    "title": "Analyzing and Comparison of Movie Rating using Hadoop and Spark Frame Work",
+    "authors": ["Devadiga, A.", "Aravinda, C.V.", "Prakash, H.N."],
+    "year": 2019,
+    "type": "chapter",
+    "venue": "Lecture Notes in Networks and Systems",
+    "publisher": "Springer",
+    "details": "Vol. 43, pp. 103–110",
+    "doi": "10.1007/978-981-13-2514-4_9"
+  },
+  {
     "id": "euromed2018-ancient-asian",
     "title": "Ancient Asian Character Recognition for Literature Preservation and Understanding",
     "authors": ["Meng, L.", "Aravinda, C.V.", "Reddy, K.R.U.K.", "Izumi, T.", "Yamazaki, K."],
@@ -489,6 +628,16 @@
     "venue": "International Conference on Cognitive Computing and Information Processing",
     "details": "Vol. 801, pp. 468–474",
     "tags": ["Agriculture", "Clustering"]
+  },
+  {
+    "id": "2018-estimation-critical-virtual",
+    "title": "Estimation of Critical Virtual Water for Irrigation to Avoid Crop Loss",
+    "authors": ["Swathi Pai, M.", "Shalini, H.", "Aravinda, C.V."],
+    "year": 2018,
+    "type": "journal",
+    "venue": "International Journal of Engineering and Technology(UAE)",
+    "details": "Vol. 7, No. 3.34 (Special Issue 34), pp. 799–803",
+    "url": "https://www.scopus.com/pages/publications/85082349282"
   },
   {
     "id": "ira2016-tamil",
@@ -519,6 +668,28 @@
     "venue": "International Journal of Science and Research (IJSR)",
     "details": "Vol. 3(10), pp. 911–916",
     "tags": ["Character Recognition"]
+  },
+  {
+    "id": "2014-template-matching-method",
+    "title": "Template Matching Method for Kannada Handwritten Recognition based on Correlation Analysis",
+    "authors": ["Aravinda, C.V.", "Prakash, H.N."],
+    "year": 2014,
+    "type": "conference",
+    "venue": "Proceedings of 2014 International Conference on Contemporary Computing and Informatics, IC3I 2014",
+    "publisher": "IEEE",
+    "details": "pp. 857–861",
+    "doi": "10.1109/IC3I.2014.7019635"
+  },
+  {
+    "id": "2010-innovative-simulation-comparison",
+    "title": "An Innovative Simulation, Comparison Methodology & Framework for Evaluating the Performance of Novel IPv4/IPv6 Transition Mechanisms: BD-SIIT vs DSTM",
+    "authors": ["Hanumanthappa, J.", "Manjaiah, D.H.", "Aravinda, C.V."],
+    "year": 2010,
+    "type": "conference",
+    "venue": "Proceedings - 1st International Conference on Integrated Intelligent Computing, ICIIC 2010",
+    "publisher": "IEEE",
+    "details": "pp. 258–263",
+    "doi": "10.1109/ICIIC.2010.55"
   },
   {
     "id": "book2025-mlops",
