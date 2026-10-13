@@ -64,6 +64,30 @@
     "tags": ["Quantum Machine Learning", "Dermatology", "Transformers"]
   },
   {
+    "id": "icadaai2026-student-placement",
+    "title": "Machine Learning-Based Prediction of Student Placement Outcomes Using Academic and Skill Indicators",
+    "authors": ["Da, N.", "Jayamohan, M.", "Mahajan, S.", "Khan, M.S.", "John, S.", "Aravinda, C.V."],
+    "year": 2026,
+    "type": "conference",
+    "venue": "2026 5th MEC International Conference on Advanced Data Analytics and Artificial Intelligence for Sustainable Smart Cities (ICADAAI)",
+    "publisher": "IEEE",
+    "details": "pp. 1–5",
+    "doi": "10.1109/ICADAAI64945.2026.11679141",
+    "tags": ["Educational Data Mining", "Machine Learning", "Student Employability"]
+  },
+  {
+    "id": "icadaai2026-oulad-xai",
+    "title": "Adaptive Explainable Framework for Early Prediction of At-Risk Learners using OULAD and Decision Tree Models",
+    "authors": ["Khan, M.S.", "Zameer, A.", "Aravinda, C.V."],
+    "year": 2026,
+    "type": "conference",
+    "venue": "2026 5th MEC International Conference on Advanced Data Analytics and Artificial Intelligence for Sustainable Smart Cities (ICADAAI)",
+    "publisher": "IEEE",
+    "details": "pp. 1–5",
+    "doi": "10.1109/ICADAAI64945.2026.11679225",
+    "tags": ["Educational Data Mining", "Explainable AI", "Early Prediction"]
+  },
+  {
     "id": "access2025-nas-quantum-patch",
     "title": "A Neural Architecture Search-Driven Quantum Patch Attention Framework for Skin Disease Recognition and Classification with XAI Vision Transformers",
     "authors": ["Aravinda, C.V.", "Joseph, E.R.", "Alasmari, S."],
