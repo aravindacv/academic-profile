@@ -1,8 +1,73 @@
 {
   "source": "Google Scholar",
-  "updated": "2026-10-11",
-  "citations": 1077,
-  "hIndex": null,
-  "i10Index": null,
-  "perYear": []
+  "updated": "2026-10-13",
+  "citations": 1096,
+  "hIndex": 19,
+  "i10Index": 35,
+  "perYear": [
+    {
+      "year": 2011,
+      "citations": 11
+    },
+    {
+      "year": 2012,
+      "citations": 21
+    },
+    {
+      "year": 2013,
+      "citations": 25
+    },
+    {
+      "year": 2014,
+      "citations": 21
+    },
+    {
+      "year": 2015,
+      "citations": 25
+    },
+    {
+      "year": 2016,
+      "citations": 38
+    },
+    {
+      "year": 2017,
+      "citations": 36
+    },
+    {
+      "year": 2018,
+      "citations": 45
+    },
+    {
+      "year": 2019,
+      "citations": 40
+    },
+    {
+      "year": 2020,
+      "citations": 47
+    },
+    {
+      "year": 2021,
+      "citations": 80
+    },
+    {
+      "year": 2022,
+      "citations": 129
+    },
+    {
+      "year": 2023,
+      "citations": 155
+    },
+    {
+      "year": 2024,
+      "citations": 131
+    },
+    {
+      "year": 2025,
+      "citations": 137
+    },
+    {
+      "year": 2026,
+      "citations": 137
+    }
+  ]
 }
