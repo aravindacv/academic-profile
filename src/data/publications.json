@@ -2,13 +2,13 @@
   {
     "id": "wcci2026-simclr-vit-brain-tumor",
     "title": "An Explainable Self-Supervised SimCLR and Vision Transformer Framework for Robust Brain Tumor Diagnosis from MRI",
-    "authors": ["Aravinda, C.V.", "et al."],
+    "authors": ["Aravinda, C.V.", "Shaffi, N.", "Viswan, V.", "Mahmud, M."],
     "year": 2026,
     "type": "conference",
-    "venue": "IEEE World Congress on Computational Intelligence (WCCI 2026), IJCNN Track",
+    "venue": "2026 International Joint Conference on Neural Networks (IJCNN), part of IEEE WCCI 2026",
     "publisher": "IEEE",
-    "details": "Maastricht, The Netherlands, 21–26 June 2026. Manuscript ID ijcnn_pap2495s2",
-    "status": "accepted",
+    "details": "Maastricht, The Netherlands, pp. 1–6",
+    "doi": "10.1109/IJCNN69854.2026.11728419",
     "selected": true,
     "tags": ["Medical Imaging", "Self-Supervised Learning", "Vision Transformers", "XAI"]
   },
