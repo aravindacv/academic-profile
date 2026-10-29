@@ -204,3 +204,7 @@ ul { padding-left: 1.2em; }
   a { color: inherit; text-decoration: none; }
   .pub { break-inside: avoid; }
 }
+
+/* ---------- Dimensions citation badge ---------- */
+.dim-badge { display: inline-flex; align-items: center; line-height: 1; }
+.dim-badge:empty { display: none; } /* nothing shown until the badge loads, or if it has 0 citations */

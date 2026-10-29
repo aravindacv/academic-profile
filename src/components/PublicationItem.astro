@@ -25,5 +25,14 @@ const searchText = [pub.title, pub.venue, pub.authors.join(' '), pub.tags.join('
     {showType && <span class="badge badge--type">{typeLabels[pub.type]}</span>}
     {pub.doi && <span>DOI: <a href={`https://doi.org/${pub.doi}`} {...ext}>{pub.doi}</a></span>}
     {!pub.doi && pub.url && <a href={pub.url} {...ext}>View ↗</a>}
+    {pub.doi && (
+      <span
+        class="__dimensions_badge_embed__ dim-badge"
+        data-doi={pub.doi}
+        data-style="small_rectangle"
+        data-legend="hover-right"
+        data-hide-zero-citations="true"
+      ></span>
+    )}
   </div>
 </li>

@@ -50,6 +50,9 @@ const jsonLd = {
     <meta property="og:url" content={canonical} />
     <meta name="twitter:card" content="summary" />
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <!-- Dimensions citation badges (free for researchers' own publications). Loaded once per page;
+         it fills every <span class="__dimensions_badge_embed__"> rendered by PublicationItem. -->
+    <script is:inline async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
