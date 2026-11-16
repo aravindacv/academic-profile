@@ -1,7 +1,7 @@
 {
   "source": "Google Scholar",
-  "updated": "2026-11-09",
-  "citations": 1109,
+  "updated": "2026-11-16",
+  "citations": 1113,
   "hIndex": 19,
   "i10Index": 36,
   "perYear": [
@@ -47,7 +47,7 @@
     },
     {
       "year": 2021,
-      "citations": 81
+      "citations": 80
     },
     {
       "year": 2022,
@@ -67,7 +67,7 @@
     },
     {
       "year": 2026,
-      "citations": 148
+      "citations": 150
     }
   ]
 }
